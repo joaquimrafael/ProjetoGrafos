@@ -10,6 +10,7 @@ import classes.pilha as p
 
 def main():
     while True:
+        print("Projeto 1 - Teoria dos Grafos")
         print("1-Ler dados do arquivo grafo.txt");
         print("2-Gravar dados no arquivo grafo.txt");
         print("3-Inserir vértice");
