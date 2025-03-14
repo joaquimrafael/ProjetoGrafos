@@ -10,7 +10,7 @@ import classes.pilha as p
 
 def main():
     while True:
-        print("Projeto 1 - Teoria dos Grafos")
+        print("\nProjeto 1 - Teoria dos Grafos - Rede internacional de voos a longas distancias\n")
         print("1-Ler dados do arquivo grafo.txt");
         print("2-Gravar dados no arquivo grafo.txt");
         print("3-Inserir vértice");
@@ -21,7 +21,7 @@ def main():
         print("8-Mostrar grafo");
         print("9-Apresentar a conexidade do grafo e o reduzido");
         print("10-Encerrar a aplicação");
-        print("Digite a opção desejada: ");
+        print("\nDigite a opção desejada: ");
         opcao = int(input())
         match opcao:
             case 1:
