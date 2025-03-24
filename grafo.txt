@@ -1,0 +1,18 @@
+Direcionado
+5
+0 "Brasil" "567"
+1 "USA" "999"
+2 "India" "777"
+3 "China" "666"
+4 "Japão" "589"
+Brasil_USA 678
+Brasil_China 5678
+USA_India 666
+USA_Japão 4589
+India_Brasil 4589
+India_China 9090
+China_Japão 7890
+China_USA 7890
+Japão_Brasil 7895
+Japão_India 5682
+
