@@ -1,18 +1,62 @@
-Direcionado
-5
-0 "Brasil" "567"
-1 "USA" "999"
-2 "India" "777"
-3 "China" "666"
-4 "Japão" "589"
-Brasil_USA 678
-Brasil_China 5678
-USA_India 666
-USA_Japão 4589
-India_Brasil 4589
-India_China 9090
-China_Japão 7890
-China_USA 7890
-Japão_Brasil 7895
-Japão_India 5682
-
+7
+60
+0 "Indira Gandhi International Airport" "India" "624"
+1 "Shanghai Pudong International Airport" "China" "691"
+2 "O'Hare International Airport" "United States" "991"
+3 "Soekarno–Hatta International Airport" "Indonesia" "559"
+4 "Jinnah International Airport" "Pakistan" "118"
+5 "Murtala Muhammed International Airport" "Nigeria" "204"
+6 "São Paulo/Guarulhos International Airport" "Brazil" "276"
+7 "Hazrat Shahjalal International Airport" "Bangladesh" "190"
+8 "Sheremetyevo International Airport" "Russia" "321"
+9 "Benito Juárez International Airport" "Mexico" "339"
+10 "Tokyo International (Haneda) Airport" "Japan" "641"
+11 "Addis Ababa Bole International Airport" "Ethiopia" "380"
+12 "Ninoy Aquino International Airport" "Philippines" "384"
+13 "Cairo International Airport" "Egypt" "580"
+14 "N'djili Airport (Kinshasa)" "Democratic Republic of the Congo" "40"
+15 "Tan Son Nhat International Airport" "Vietnam" "280"
+16 "Tehran Mehrabad International Airport" "Iran" "84"
+17 "Istanbul Airport" "Türkiye" "591"
+18 "Frankfurt Airport" "Germany" "528"
+19 "Suvarnabhumi Airport" "Thailand" "440"
+20 "Heathrow Airport" "United Kingdom" "569"
+21 "Julius Nyerere International Airport" "Tanzania" "94"
+22 "Charles de Gaulle Airport" "France" "558"
+23 "O. R. Tambo International Airport" "South Africa" "504"
+24 "Leonardo da Vinci–Fiumicino Airport" "Italy" "423"
+25 "Jomo Kenyatta International Airport" "Kenya" "124"
+26 "Yangon International Airport" "Myanmar" "102"
+27 "El Dorado International Airport" "Colombia" "411"
+28 "Incheon International Airport" "South Korea" "488"
+29 "Khartoum International Airport" "Sudan" "8"
+30 "Entebbe International Airport" "Uganda" "42"
+31 "Adolfo Suárez Madrid–Barajas Airport" "Spain" "493"
+32 "Houari Boumediene Airport" "Algeria" "154"
+33 "Baghdad International Airport" "Iraq" "96"
+34 "Jorge Newbery Airfield (Aeroparque)" "Argentina" "346"
+35 "Hamid Karzai International Airport" "Afghanistan" "30"
+36 "Sana'a International Airport" "Yemen" "38"
+37 "Toronto Pearson International Airport" "Canada" "416"
+38 "Warsaw Chopin Airport" "Poland" "346"
+39 "Mohammed V International Airport" "Morocco" "153"
+40 "Quatro de Fevereiro Airport" "Angola" "24"
+41 "Boryspil International Airport" "Ukraine" "0"
+42 "Islam Karimov Tashkent International Airport" "Uzbekistan" "129"
+43 "Kuala Lumpur International Airport" "Malaysia" "519"
+44 "Maputo International Airport" "Mozambique" "44"
+45 "Kotoka International Airport" "Ghana" "112"
+46 "Jorge Chávez International Airport" "Peru" "434"
+47 "King Abdulaziz International Airport" "Saudi Arabia" "321"
+48 "Ivato International Airport" "Madagascar" "26"
+49 "Félix-Houphouët-Boigny International Airport" "Côte d'Ivoire" "26"
+50 "Tribhuvan International Airport" "Nepal" "500"
+51 "Douala International Airport" "Cameroon" "36"
+52 "Simón Bolívar International Airport" "Venezuela" "44"
+53 "Diori Hamani International Airport" "Niger" "10"
+54 "Sydney (Kingsford Smith) Airport" "Australia" "374"
+55 "Pyongyang Sunan International Airport" "North Korea" "2"
+56 "Damascus International Airport" "Syria" "8"
+57 "Modibo Keita International Airport" "Mali" "22"
+58 "Ouagadougou International Airport" "Burkina Faso" "18"
+59 "Taiwan Taoyuan International Airport" "Taiwan" "752"
