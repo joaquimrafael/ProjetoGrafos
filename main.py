@@ -131,7 +131,6 @@ class TGrafoMatrizD(gm.Grafo):
     def grafo_reduzido(self):
         n = len(self.vertices)
 
-        # 1. Primeiro DFS para obter a ordem de finalização
         visited = set()
         order = []
     
@@ -146,14 +145,12 @@ class TGrafoMatrizD(gm.Grafo):
             if v not in visited:
                 dfs_order(v)
     
-        # 2. Construir a matriz transposta (inverte as direções das arestas)
         transposed = [[None for _ in range(n)] for _ in range(n)]
         for i in range(n):
             for j in range(n):
                 if self.matriz[i][j] is not None:
                     transposed[j][i] = self.matriz[i][j]
     
-        # 3. Segundo DFS no grafo transposto, seguindo a ordem decrescente de finalização
         visited.clear()
         components = []
     
@@ -165,14 +162,12 @@ class TGrafoMatrizD(gm.Grafo):
                     dfs_component(i, comp)
     
         while order:
-            v = order.pop()  # pega o vértice com maior tempo de finalização
+            v = order.pop() 
             if v not in visited:
                 comp = []
                 dfs_component(v, comp)
                 components.append(comp)
     
-        # 4. Criar o grafo reduzido: cada componente forte vira um vértice; 
-        #    se existir uma aresta entre vértices de componentes diferentes, ela vira aresta no grafo reduzido.
         vertice_to_comp = {}
         for comp_idx, comp in enumerate(components):
             for v in comp:
@@ -187,7 +182,6 @@ class TGrafoMatrizD(gm.Grafo):
                     if c1 != c2:
                         reduzido[c1].add(c2)
     
-        # 5. Traduzir cada componente para os códigos dos aeroportos
         components_codes = []
         for comp in components:
             comp_codes = [self.vertices[v]['codigo'] for v in comp]
