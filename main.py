@@ -214,7 +214,7 @@ def gravarArquivo(grafo, nome_arquivo, tipo_grafo=7):
                 distancia, tempo = valor
                 arestas.append(f"{origem}_{destino} {distancia} {tempo}")
     
-    print(len(arestas))
+    print("Dados gravados com sucesso!")
     
     with open(nome_arquivo, 'w', encoding='utf-8') as arquivo:
         arquivo.write(f"{tipo_grafo}\n")
