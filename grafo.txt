@@ -1,68 +1,74 @@
 7
-59
-0 "PVG" "China" "691.0"
-1 "ORD" "United States" "991.0"
-2 "CGK" "Indonesia" "559.0"
-3 "KHI" "Pakistan" "118.0"
-4 "LOS" "Nigeria" "204.0"
-5 "GRU" "Brazil" "276.0"
-6 "DAC" "Bangladesh" "190.0"
-7 "SVO" "Russia" "321.0"
-8 "MEX" "Mexico" "339.0"
-9 "HND" "Japan" "641.0"
-10 "ADD" "Ethiopia" "380.0"
-11 "MNL" "Philippines" "384.0"
-12 "CAI" "Egypt" "580.0"
-13 "FIH" "Democratic Republic of the Congo" "40.0"
-14 "SGN" "Vietnam" "280.0"
-15 "THR" "Iran" "84.0"
-16 "IST" "Türkiye" "591.0"
-17 "FRA" "Germany" "528.0"
-18 "BKK" "Thailand" "440.0"
-19 "LHR" "United Kingdom" "569.0"
-20 "DAR" "Tanzania" "94.0"
-21 "CDG" "France" "558.0"
-22 "JNB" "South Africa" "504.0"
-23 "FCO" "Italy" "423.0"
-24 "NBO" "Kenya" "124.0"
-25 "RGN" "Myanmar" "102.0"
-26 "BOG" "Colombia" "411.0"
-27 "ICN" "South Korea" "488.0"
-28 "KRT" "Sudan" "8.0"
-29 "EBB" "Uganda" "42.0"
-30 "MAD" "Spain" "493.0"
-31 "ALG" "Algeria" "154.0"
-32 "BGW" "Iraq" "96.0"
-33 "AEP" "Argentina" "346.0"
-34 "KBL" "Afghanistan" "30.0"
-35 "SAH" "Yemen" "38.0"
-36 "YYZ" "Canada" "416.0"
-37 "WAW" "Poland" "346.0"
-38 "CMN" "Morocco" "153.0"
-39 "LAD" "Angola" "24.0"
-40 "KBP" "Ukraine" "0.0"
-41 "TAS" "Uzbekistan" "129.0"
-42 "KUL" "Malaysia" "519.0"
-43 "MPM" "Mozambique" "44.0"
-44 "ACC" "Ghana" "112.0"
-45 "LIM" "Peru" "434.0"
-46 "JED" "Saudi Arabia" "321.0"
-47 "TNR" "Madagascar" "26.0"
-48 "ABJ" "Côte d'Ivoire" "26.0"
-49 "KTM" "Nepal" "500.0"
-50 "DLA" "Cameroon" "36.0"
-51 "CCS" "Venezuela" "44.0"
-52 "NIM" "Niger" "10.0"
-53 "SYD" "Australia" "374.0"
-54 "FNJ" "North Korea" "2.0"
-55 "DAM" "Syria" "8.0"
-56 "BKO" "Mali" "22.0"
-57 "OUA" "Burkina Faso" "18.0"
-58 "TPE" "Taiwan" "752.0"
-157
+60
+0 "DEL" "India" "624"
+1 "PVG" "China" "691"
+2 "ORD" "United States" "991"
+3 "CGK" "Indonesia" "559"
+4 "KHI" "Pakistan" "118"
+5 "LOS" "Nigeria" "204"
+6 "GRU" "Brazil" "276"
+7 "DAC" "Bangladesh" "190"
+8 "SVO" "Russia" "321"
+9 "MEX" "Mexico" "339"
+10 "HND" "Japan" "641"
+11 "ADD" "Ethiopia" "380"
+12 "MNL" "Philippines" "384"
+13 "CAI" "Egypt" "580"
+14 "FIH" "Democratic Republic of the Congo" "40"
+15 "SGN" "Vietnam" "280"
+16 "THR" "Iran" "84"
+17 "IST" "Türkiye" "591"
+18 "FRA" "Germany" "528"
+19 "BKK" "Thailand" "440"
+20 "LHR" "United Kingdom" "569"
+21 "DAR" "Tanzania" "94"
+22 "CDG" "France" "558"
+23 "JNB" "South Africa" "504"
+24 "FCO" "Italy" "423"
+25 "NBO" "Kenya" "124"
+26 "RGN" "Myanmar" "102"
+27 "BOG" "Colombia" "411"
+28 "ICN" "South Korea" "488"
+29 "KRT" "Sudan" "8"
+30 "EBB" "Uganda" "42"
+31 "MAD" "Spain" "493"
+32 "ALG" "Algeria" "154"
+33 "BGW" "Iraq" "96"
+34 "AEP" "Argentina" "346"
+35 "KBL" "Afghanistan" "30"
+36 "SAH" "Yemen" "38"
+37 "YYZ" "Canada" "416"
+38 "WAW" "Poland" "346"
+39 "CMN" "Morocco" "153"
+40 "LAD" "Angola" "24"
+41 "KBP" "Ukraine" "0"
+42 "TAS" "Uzbekistan" "129"
+43 "KUL" "Malaysia" "519"
+44 "MPM" "Mozambique" "44"
+45 "ACC" "Ghana" "112"
+46 "LIM" "Peru" "434"
+47 "JED" "Saudi Arabia" "321"
+48 "TNR" "Madagascar" "26"
+49 "ABJ" "Côte d'Ivoire" "26"
+50 "KTM" "Nepal" "500"
+51 "DLA" "Cameroon" "36"
+52 "CCS" "Venezuela" "44"
+53 "NIM" "Niger" "10"
+54 "SYD" "Australia" "374"
+55 "FNJ" "North Korea" "2"
+56 "DAM" "Syria" "8"
+57 "BKO" "Mali" "22"
+58 "OUA" "Burkina Faso" "18"
+59 "TPE" "Taiwan" "752"
+
+164
+DEL_ORD 7466 15h 15
+DEL_YYZ 7228 14h 50
+DEL_SYD 6481 12h 35
 PVG_ORD 7039 13h 40
 PVG_MAD 6377 14h 40
 PVG_YYZ 7089 14h 35
+ORD_DEL 7466 14h 30
 ORD_PVG 7039 14h 50
 ORD_ADD 7564 13h 45
 CGK_CAI 5557 11h 20
@@ -131,11 +137,12 @@ FCO_HND 6144 12h 15
 NBO_FRA 3923 9h 05
 NBO_LHR 4249 9h 10
 NBO_CDG 4033 9h 10
+RGN_DEL 1451 3h 45
 RGN_SGN 820 2h 30
 RGN_TPE 1710 3h 55
-BOG_IST 6663 13h 45
 BOG_FRA 5643 10h 25
 BOG_CDG 5368 10h 10
+BOG_IST 6663 13h 45
 ICN_ORD 6533 13h 00
 ICN_MEX 7512 13h 55
 ICN_YYZ 6593 13h 20
@@ -148,11 +155,13 @@ MAD_ICN 6188 12h 45
 ALG_SVO 2069 5h 10
 ALG_CAI 1680 3h 45
 ALG_JED 2383 4h 55
+BGW_DEL 1966 4h 45
 BGW_IST 1012 3h 15
 BGW_KUL 4255 8h 30
 AEP_GRU 1052 2h 45
 AEP_BOG 2898 6h 45
 AEP_LIM 1949 4h 50
+KBL_DEL 621 2h 00
 KBL_IST 2231 5h 45
 KBL_JED 2024 5h 05
 SAH_CAI 1297 3h 00
