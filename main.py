@@ -3,10 +3,7 @@
 # Antonio Carlos Sciamarelli Neto 10409160
 # Henrique Arabe Neres de Farias 10410152
 
-import classes.filaCircular as fc
-import classes.grafoLista as gl
-import classes.grafoMatriz as gm
-import classes.pilha as p
+import grafoMatriz as gm
 from collections import defaultdict
 
 class TGrafoMatrizD(gm.Grafo):

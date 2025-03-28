@@ -4,6 +4,12 @@ Created on Mon Feb 13 13:59:10 2023
 
 @author: icalc
 """
+
+# Usado em Projeto 1 - Teoria dos Grafos por:
+# Joaquim Rafael M. P. Pereira 10408805
+# Antonio Carlos Sciamarelli Neto 10409160
+# Henrique Arabe Neres de Farias 10410152
+
 class Grafo:
     TAM_MAX_DEFAULT = 100 # qtde de vértices máxima default
     # construtor da classe grafo
