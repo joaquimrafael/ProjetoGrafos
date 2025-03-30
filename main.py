@@ -3,6 +3,13 @@
 # Antonio Carlos Sciamarelli Neto 10409160
 # Henrique Arabe Neres de Farias 10410152
 
+#Atualizações:
+#24/03/2025 - Itens 1, 3, 4, 5, 6 e 8 do menu feitos baseados em um exemplo especifico apenas para a realização do código 
+#25/03/2025 - Itens 2, 7 e 9 feitos baseados no mesmo exemplo de antes
+#26/03/2025 - Montagem do arquivo grafo.txt com os dados do nosso grafo final e modificações nas funções (apenas mudança na leitura do arquivo e armazenamento para se adequar ao formato correto)
+#27/03/2025 - Finalização do código e testes com o arquivo grafo.txt final
+#30/03/2025 - Última revisão do código e adição dos comentários explicando as funções e o funcionamento geral do código 
+
 import grafoMatriz as gm
 from collections import defaultdict
 
