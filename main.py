@@ -13,17 +13,22 @@ class TGrafoMatrizD(gm.Grafo):
         self.matriz = [] 
 
     def inserirVertice(self, codigo, pais, media_voos):
+        #Verifica se o código fornecido já não existe dentro do grafo
         if codigo not in self.indices:
+            #Armazena as informações passadas dentro do vetor de vértices
             self.vertices.append({'codigo': codigo, 'pais': pais, 'media_voos': media_voos})
             idx = len(self.vertices) - 1
             self.indices[codigo] = idx
+            #For para adicionar o vértice dentro da matriz
             for linha in self.matriz:
                 linha.append(None)
             self.matriz.append([None] * len(self.vertices))
 
     def removerVertice(self, codigo):
+        #Verifica de o código passada existe no grafo
         if codigo in self.indices:
             idx = self.indices[codigo]
+            #Deleta as informações do vértice, do vetor e da matriz
             del self.vertices[idx]
             del self.matriz[idx]
             for linha in self.matriz:
@@ -32,18 +37,23 @@ class TGrafoMatrizD(gm.Grafo):
             self.indices = {v['codigo']: i for i, v in enumerate(self.vertices)}
 
     def adicionarAresta(self, origem, destino, distancia, tempo_voo):
+        #Verifica se a origem e o destino existem dentro do grafo
         if origem in self.indices and destino in self.indices:
+            #Adiciona o valor da aresta na posição correspondente dentro da matriz
             i = self.indices[origem]
             j = self.indices[destino]
             self.matriz[i][j] = (distancia, tempo_voo)
 
     def removerAresta(self, origem, destino):
+        #Verifica se existe uma aresta com essa origem e destino
         if origem in self.indices and destino in self.indices:
+            #Remove o valor da aresta da matriz
             i = self.indices[origem]
             j = self.indices[destino]
             self.matriz[i][j] = None
 
     def mostrarGrafo(self):
+        #Armazena os códigos salvos em um vetor para ser usado na hora de imprimir a matriz
         codigos = [v['codigo'] for v in self.vertices]
         coluna = 13
         print("Matriz de Adjacência:")
@@ -52,6 +62,7 @@ class TGrafoMatrizD(gm.Grafo):
         header = "     " + "".join(c.ljust(coluna) for c in codigos)
         print(header)
 
+        #Looping for para formatar a imprimir as linhas da matriz de forma que fique fácil a a vizualização
         for i, linha in enumerate(self.matriz):
             linha_formatada = codigos[i].ljust(5)
             for valor in linha:
@@ -67,14 +78,18 @@ class TGrafoMatrizD(gm.Grafo):
     def lerArquivo(nome_arquivo):
         grafo = TGrafoMatrizD()
 
+        #Abre o arquivo em modo de leitura
         with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
             linhas = [linha.strip() for linha in arquivo if linha.strip()]
 
+            #Armazena o tipo do grafo e o número de vértices (n)
             tipo_grafo = linhas[0]
             n = int(linhas[1])
 
+            #Vetor para armazenar o nome do país em que o aeroporto se localiza
             paises = []
 
+            #Le as linhas baseadas no valor de n para ler todos os vértices e guardar as informações de código, país e média de voos
             for i in range(2, 2 + n):
                 partes = linhas[i].split('"')
                 codigo = partes[1]
@@ -83,8 +98,10 @@ class TGrafoMatrizD(gm.Grafo):
                 grafo.inserirVertice(codigo, pais, media_voos)
                 paises.append(pais)
 
+            #Armazena em m o número de arestas
             m = int(linhas[2 + n])
 
+            #For que percorre o restante das linhas para armazenar as informações de destino, origem, distancia e tempo presente na aresta
             for i in range(3 + n, len(linhas)):
                 partes = linhas[i].split()
                 origem, destino = partes[0].split('_')
@@ -95,22 +112,39 @@ class TGrafoMatrizD(gm.Grafo):
         return grafo
     
     def conexidade(self):
+        # Função que verifica a conectividade do grafo dirigido.
+        # Retorna:
+        # - "fortemente conexo" se para todo vértice há caminho para todos os demais;
+        # - "fracamente conexo" se o grafo, quando considerado como não-dirigido, é conexo;
+        # - "desconexo" caso contrário.
         def dfs(v, visitado, matriz):
+            # Busca em profundidade (DFS) recursiva a partir do vértice 'v'.
+            # 'visitado' é um conjunto que registra os vértices já visitados.
+            # 'matriz' representa a matriz de adjacência do grafo a ser percorrido.
             visitado.add(v)
             for i, aresta in enumerate(matriz[v]):
+                # Se há uma aresta saindo de 'v' para 'i' e 'i' ainda não foi visitado,
+                # realiza DFS a partir de 'i'.
                 if aresta is not None and i not in visitado:
                     dfs(i, visitado, matriz)
 
         n = len(self.vertices)
 
+        # Verifica se o grafo é fortemente conexo:
+        # Para cada vértice, executa DFS para verificar se é possível alcançar todos os outros.
         for i in range(n):
             visitado = set()
             dfs(i, visitado, self.matriz)
             if len(visitado) != n:
+                # Se a partir de algum vértice não é possível alcançar todos os outros,
+                # o grafo não é fortemente conexo; sai do laço.
                 break
         else:
             return "fortemente conexo"
 
+        # Converte o grafo dirigido em um grafo não-dirigido para testar a conectividade fraca.
+        # Cria uma nova matriz onde, se existir uma aresta em qualquer direção entre i e j,
+        # uma conexão é estabelecida entre eles.
         matriz_nd = [[None for _ in range(n)] for _ in range(n)]
         for i in range(n):
             for j in range(n):
@@ -118,6 +152,7 @@ class TGrafoMatrizD(gm.Grafo):
                     matriz_nd[i][j] = 1
                     matriz_nd[j][i] = 1
 
+        # Realiza DFS no grafo não-dirigido a partir do vértice 0 para verificar a conectividade.
         visitado = set()
         dfs(0, visitado, matriz_nd)
         if len(visitado) == n:
@@ -126,22 +161,31 @@ class TGrafoMatrizD(gm.Grafo):
             return "desconexo"
         
     def grafo_reduzido(self):
+        # Função que constrói o grafo reduzido, ou seja, o grafo dos componentes fortemente conexos.
+        # Retorna uma tupla contendo:
+        # - Uma lista com os códigos (atributo 'codigo') dos vértices de cada componente fortemente conexa.
+        # - Um dicionário que representa o grafo reduzido, onde cada chave é o índice do componente
+        #   e o valor é um conjunto com os índices dos componentes adjacentes.
         n = len(self.vertices)
 
         visited = set()
         order = []
     
         def dfs_order(v):
+            # DFS que registra a ordem de finalização dos vértices.
+            # Essa ordem é utilizada para identificar os componentes fortemente conexos.
             visited.add(v)
             for i, edge in enumerate(self.matriz[v]):
                 if edge is not None and i not in visited:
                     dfs_order(i)
             order.append(v)
-    
+
+        # Realiza DFS para todos os vértices que ainda não foram visitados e preenche a lista 'order'.
         for v in range(n):
             if v not in visited:
                 dfs_order(v)
-    
+
+        # Cria a matriz transposta do grafo, invertendo a direção de todas as arestas.
         transposed = [[None for _ in range(n)] for _ in range(n)]
         for i in range(n):
             for j in range(n):
@@ -152,24 +196,31 @@ class TGrafoMatrizD(gm.Grafo):
         components = []
     
         def dfs_component(v, comp):
+            # DFS na matriz transposta para coletar todos os vértices que pertencem
+            # ao mesmo componente fortemente conexo.
             visited.add(v)
             comp.append(v)
             for i, edge in enumerate(transposed[v]):
                 if edge is not None and i not in visited:
                     dfs_component(i, comp)
-    
+
+        # Processa os vértices na ordem inversa da finalização (armazenada em 'order')
         while order:
             v = order.pop() 
             if v not in visited:
                 comp = []
                 dfs_component(v, comp)
                 components.append(comp)
-    
+
+        # Mapeia cada vértice para o índice do componente ao qual ele pertence.
         vertice_to_comp = {}
         for comp_idx, comp in enumerate(components):
             for v in comp:
                 vertice_to_comp[v] = comp_idx
 
+        # Constrói o grafo reduzido:
+        # Para cada aresta do grafo original, se os vértices de origem e destino pertencerem a
+        # componentes diferentes, adiciona uma aresta entre esses componentes.
         reduzido = defaultdict(set)
         for i in range(n):
             for j, edge in enumerate(self.matriz[i]):
@@ -178,7 +229,9 @@ class TGrafoMatrizD(gm.Grafo):
                     c2 = vertice_to_comp[j]
                     if c1 != c2:
                         reduzido[c1].add(c2)
-    
+
+        # Cria uma lista que contém os códigos dos vértices (atributo 'codigo')
+        # para cada componente fortemente conexo encontrado.
         components_codes = []
         for comp in components:
             comp_codes = [self.vertices[v]['codigo'] for v in comp]
@@ -189,6 +242,7 @@ class TGrafoMatrizD(gm.Grafo):
             
     
 def mostrarArquivo(nome_arquivo):
+        #Dentro do try/except ele abre o arquivo em modo de leitura e printa todas as linhas presentes
         try:
             with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
                 conteudo = arquivo.read()
@@ -201,8 +255,10 @@ def mostrarArquivo(nome_arquivo):
 
 def gravarArquivo(grafo, nome_arquivo, tipo_grafo=7):
 
+    #Vetor para guardar as arestas presentes no grafo
     arestas = []
 
+    #Looping que percorre todas as arestas buscando a origem, destino e distancia e guardando no vetor arestas
     for i, linha in enumerate(grafo.matriz):
         for j, valor in enumerate(linha):
             if valor is not None:
@@ -212,18 +268,21 @@ def gravarArquivo(grafo, nome_arquivo, tipo_grafo=7):
                 arestas.append(f"{origem}_{destino} {distancia} {tempo}")
     
     print("Dados gravados com sucesso!")
-    
+
+    #O arquivo é aberto no modo de escrita
     with open(nome_arquivo, 'w', encoding='utf-8') as arquivo:
+        #As duas primeiras linhas são preenchidas com o tipo do grafo (7) e o número de vértices (n)
         arquivo.write(f"{tipo_grafo}\n")
         arquivo.write(f"{len(grafo.vertices)}\n")
 
+        #Percorre todos os vértices do grafo e grava no arquivo no formato adequado
         for i, v in enumerate(grafo.vertices):
             codigo = v['codigo']
             pais = v['pais']
             media_voos = v['media_voos']
             arquivo.write(f'{i} "{codigo}" "{pais}" "{media_voos}"\n')
 
-
+        #Escreve no arquivo as arestas que foram armazenadas anteriormente
         arquivo.write(f"{len(arestas)}\n")
 
         for linha in arestas:
@@ -231,6 +290,7 @@ def gravarArquivo(grafo, nome_arquivo, tipo_grafo=7):
 
 
 def main():
+    #Looping contendo as opções do menu, rodando até que o usuário escolha encerrar o programa
     while True:
         print("\nProjeto 1 - Teoria dos Grafos - Rede internacional de voos a longas distancias\n")
         print("1-Ler dados do arquivo grafo.txt");
@@ -247,15 +307,18 @@ def main():
         opcao = int(input())
         match opcao:
             case 1:
+                #Cria o grafo a partir do arquivo "grafo.txt"
                 filename = "grafo.txt"
                 grafo = TGrafoMatrizD.lerArquivo(filename)
                 print("Arquivo Lido!")
                 continue
             case 2:
+                #Grava o grafo atual dentro do arquivo "grafo.txt" no formato adequado 
                 filename = "grafo.txt"
                 gravarArquivo(grafo, filename)
                 continue
             case 3:
+                #O sistema pede o código, país e a média de voos diários do aeroporto que será adicionado ao grafo como um novo vértice
                 print("Código do aeroporto: ")
                 codigo = input()
                 print("País do aeroporto: ")
@@ -265,6 +328,7 @@ def main():
                 grafo.inserirVertice(codigo, pais, voos)
                 continue
             case 4:
+                #Aqui pede a origem (Vértice de onde a aresta vai sair), o destino (Vértice onde a aresta vai chegar), a distancia e o tempo (valores da aresta) e adiciona a aresta ao grafo
                 print("Origem da aresta: ")
                 origem = input()
                 print("Destino da aresta: ")
@@ -276,11 +340,13 @@ def main():
                 grafo.adicionarAresta(origem, destino, distancia, tempo)
                 continue
             case 5:
+                #O sistema pede o código do aeroporto e com base nele remove o vértice correspondente
                 print("Código do aeroporto a ser removido: ")
                 remove = input()
                 grafo.removerVertice(remove)
                 continue
             case 6:
+                #O sitema pede a origem e o destino e remove a aresta correspondente 
                 print("Origem da aresta a ser removida: ")
                 origem = input()
                 print("Destino da aresta a ser removida: ")
@@ -288,13 +354,16 @@ def main():
                 grafo.removerAresta(origem, destino)
                 continue
             case 7:
+                #O sistema simplesmente imprime o conteúdo do arquivo "grafo.txt"
                 filename2 = "grafo.txt"
                 mostrarArquivo(filename2)
                 continue
             case 8:
+                #O sistema imprime o grafo em forma de matriz
                 grafo.mostrarGrafo()
                 continue
             case 9:
+                #O sistema primeiramente mostra a conexidade do grafo e depois mostra os seus componentes fortemente conexos seguido do grafo reduzido
                 print("Conexidade do grafo: ", grafo.conexidade())
                 componentes, reduzido = grafo.grafo_reduzido()
 
@@ -308,6 +377,7 @@ def main():
                         print(f"C{origem} -> C{destino}")
                 continue
             case 10:
+                #O programa é encerrado
                 print("Finalizando...")
                 break
             case _:
