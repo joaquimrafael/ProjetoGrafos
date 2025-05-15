@@ -1,4 +1,16 @@
-# main.py
+# Usado em Projeto 2 - Teoria dos Grafos por:
+# Joaquim Rafael M. P. Pereira 10408805
+# Antonio Carlos Sciamarelli Neto 10409160
+# Henrique Arabe Neres de Farias 10410152
+
+#Atualizações:
+#24/03/2025 - Itens 1, 3, 4, 5, 6 e 8 do menu feitos baseados em um exemplo especifico apenas para a realização do código 
+#25/03/2025 - Itens 2, 7 e 9 feitos baseados no mesmo exemplo de antes
+#26/03/2025 - Montagem do arquivo grafo.txt com os dados do nosso grafo final e modificações nas funções (apenas mudança na leitura do arquivo e armazenamento para se adequar ao formato correto)
+#27/03/2025 - Finalização do código e testes com o arquivo grafo.txt final
+#30/03/2025 - Última revisão do código e adição dos comentários explicando as funções e o funcionamento geral do código
+#12/05/2025 - Itens 1 e 2 da Atividade Projeto 2 baseados no material dado em aula
+#14/05/2025 - Finalização do código, print dos resultados, e fechamento do relatório
 
 import re
 import math
@@ -6,7 +18,6 @@ import grafoMatriz as gm
 from collections import defaultdict
 
 def parse_tempo(s: str) -> int:
-    """Converte string 'Xh Ym' em minutos."""
     h = re.search(r'(\d+)h', s)
     m = re.search(r'(\d+)m', s)
     return (int(h.group(1)) * 60 if h else 0) + (int(m.group(1)) if m else 0)
